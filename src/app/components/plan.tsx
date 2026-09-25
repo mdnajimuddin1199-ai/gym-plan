@@ -35,8 +35,9 @@ const PlanPage = () => {
     return (
       <div className="w-full h-80 rounded-2xl border-2 border-gray-700 shadow-2xl  ">
         <h2 className="text-3xl font-semibold text-center items-center mt-20">
-          Your Plan Is Emty
+          Today is Workout Plan
         </h2>
+        <p className="text-center mt-2">Choose your lifts, build your plan, and get today moving.</p>
         <div className="flex items-center justify-center mt-4">
           <Link href="/">
             <button className="text-center items-center bg-lime-400 text-black hover:translate-y-0.5 hover:scale-100 py-2 px-3 rounded-full">

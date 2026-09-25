@@ -10,7 +10,7 @@ import { TiTick } from "react-icons/ti";
 import { toast } from "react-toastify";
 
 const SavedPage = () => {
-  const { save, setsave, short } = useContext(AppContext);
+  const { save, setsave, short ,activeTab } = useContext(AppContext);
   const shortbyfun = (everyman: Exercise[]) => {
     const shorteveryman = [...everyman];
     if (short === "Duration") {
@@ -32,8 +32,9 @@ const SavedPage = () => {
     return (
       <div className="w-full h-80 rounded-2xl border-2 border-gray-700 shadow-2xl  ">
         <h2 className="text-3xl font-semibold text-center items-center mt-20">
-          Your Plan Is Emty
+          Your Saved Workouts
         </h2>
+        <p className="text-center mt-2">Save your favorite lifts and find them easily anytime.</p>
         <div className="flex items-center justify-center mt-4">
           <Link href="/">
             <button className="text-center items-center bg-lime-400 text-black hover:translate-y-0.5 hover:scale-100 py-2 px-3 rounded-full">
@@ -86,8 +87,6 @@ const SavedPage = () => {
             </div>
           </div>
         </div>
-
-        {/* Buttons */}
         <div className="flex flex-wrap items-center gap-2 md:gap-3 md:shrink-0">
           <Link href={`/${saveper.id}`}>
             <button className="text-white border-2 border-gray-600 py-1 px-2 md:py-2 md:px-3 text-[.8rem] md:text-[1rem] rounded-full shadow-2xl">
