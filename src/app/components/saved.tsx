@@ -46,69 +46,74 @@ const SavedPage = () => {
     );
   }
   return (
-    <div className="w-full h-fit rounded-2xl border-2 border-gray-700 shadow-2xl">
-      {evenforsaved.map((saveper) => (
-        <div
-          className="my-6 mx-1 md:mx-4 flex justify-between items-center"
-          key={saveper.name}
-        >
-          <div className="flex gap-1 md:gap-3">
-            <div className="">
-              <Image
-                className="rounded-2xl w-20 "
-                width={200}
-                height={200}
-                src={saveper.image}
-                alt="Image"
-              ></Image>
-            </div>
-            <div className="text-[.8rem] md:text-[1rem">
-              <p>{saveper.name}</p>
-              <p>{saveper.equipment}</p>
-              <div className="flex w-fit  gap-2 md:gap-5  text-[.8rem] md:text-[1rem] font-semibold justify-start">
-                <p className="flex items-center md:gap-1">
-                  {" "}
-                  <IoMdTime className="text-[1rem]" /> {saveper.duration}
-                </p>
-                <p className="flex items-center md:gap-1">
-                  {" "}
-                  <FaFirefox className="text-[1rem]" />
-                  {saveper.caloriesBurned}
-                </p>
-                <p className="flex items-center md:gap-1">
-                  {" "}
-                  <FaRegStar className="text-[1rem]" />
-                  {saveper.rating}
-                </p>
-              </div>
-            </div>
+  <div className="w-full h-fit rounded-2xl border-2 border-gray-700 shadow-2xl">
+    {evenforsaved.map((saveper) => (
+      <div
+        className="my-4 mx-2 md:my-6 md:mx-4 flex flex-col md:flex-row md:justify-between gap-4"
+        key={saveper.name}
+      >
+        <div className="flex gap-2 md:gap-3 min-w-0">
+          <div className="shrink-0">
+            <Image
+              className="rounded-2xl w-16 h-16 md:w-20 md:h-20 object-cover"
+              width={200}
+              height={200}
+              src={saveper.image}
+              alt="Image"
+            />
           </div>
-          <div className="flex items-center justify-between gap-1 md:gap-3">
-            <Link href={`/${saveper.id}`}>
-              {" "}
-              <button className="text-white border-2 border-gray-600 py-1 md:py-2 md:px-3 text-[.8rem] md:text-[1rem] px-2 rounded-full hover:translate-y-0.5 hover:scale-100 shadow-2xl ">
-                View Detail{" "}
-              </button>
-            </Link>
-            <Link href="">
-              {" "}
-              <button
-                onClick={() => remaningfun(saveper)}
-                className="flex items-center gap-2 border-2 border-gray-600 py-1 md:py-2 md:px-3 text-[.8rem] md:text-[1rem] px-2 rounded-full hover:translate-y-0.5 hover:scale-100 shadow-2xl bg-lime-500 text-black"
-              >
-                {" "}
-                <TiTick />
-                Marks as Done{" "}
-              </button>
-            </Link>
-            <span>
-              <RxCross2 onClick={() => remaningfun(saveper)} />
-            </span>
+
+          <div className="text-[.8rem] md:text-[1rem] min-w-0">
+            <p className="font-semibold truncate">{saveper.name}</p>
+
+            <p className="truncate">{saveper.equipment}</p>
+
+            <div className="flex flex-wrap w-fit gap-2 md:gap-5 text-[.8rem] md:text-[1rem] font-semibold">
+              <p className="flex items-center gap-1">
+                <IoMdTime className="text-[1rem]" />
+                {saveper.duration}
+              </p>
+
+              <p className="flex items-center gap-1">
+                <FaFirefox className="text-[1rem]" />
+                {saveper.caloriesBurned}
+              </p>
+
+              <p className="flex items-center gap-1">
+                <FaRegStar className="text-[1rem]" />
+                {saveper.rating}
+              </p>
+            </div>
           </div>
         </div>
-      ))}
-    </div>
-  );
+
+        {/* Buttons */}
+        <div className="flex flex-wrap items-center gap-2 md:gap-3 md:shrink-0">
+          <Link href={`/${saveper.id}`}>
+            <button className="text-white border-2 border-gray-600 py-1 px-2 md:py-2 md:px-3 text-[.8rem] md:text-[1rem] rounded-full shadow-2xl">
+              View Detail
+            </button>
+          </Link>
+
+          <button
+            onClick={() => remaningfun(saveper)}
+            className="flex items-center gap-1 md:gap-2 border-2 border-gray-600 py-1 px-2 md:py-2 md:px-3 text-[.8rem] md:text-[1rem] rounded-full shadow-2xl bg-lime-500 text-black"
+          >
+            <TiTick />
+            Marks as Done
+          </button>
+
+          <button
+            onClick={() => remaningfun(saveper)}
+            className="p-2"
+          >
+            <RxCross2 />
+          </button>
+        </div>
+      </div>
+    ))}
+  </div>
+);
 };
 
 export default SavedPage;

@@ -48,67 +48,76 @@ const PlanPage = () => {
       </div>
     );
   }
-  return (
-    <div className="w-full h-fit rounded-2xl border-2 border-gray-700 shadow-2xl">
-      {shortforplan.map((sper, index) => (
-        <div
-          className="my-6 mx-4 flex justify-between items-center"
-          key={index}
-        >
-          <div className="flex gap-3">
-            <div className="">
-              <Image
-                className="rounded-2xl"
-                width={100}
-                height={200}
-                src={sper.image}
-                alt="Image"
-              ></Image>
-            </div>
-            <div>
-              <p>{sper.name}</p>
-              <p>{sper.equipment}</p>
-              <div className="flex w-fit  gap-7 font-semibold justify-start">
-                <p className="flex items-center gap-1">
-                  {" "}
-                  <IoMdTime className="text-[1rem]" /> {sper.duration}
-                </p>
-                <p className="flex items-center gap-1">
-                  {" "}
-                  <FaFirefox className="text-[1rem]" />
-                  {sper.caloriesBurned}
-                </p>
-                <p className="flex items-center gap-1">
-                  {" "}
-                  <FaRegStar className="text-[1rem]" />
-                  {sper.rating}
-                </p>
-              </div>
-            </div>
+return (
+  <div className="w-full h-fit rounded-2xl border-2 border-gray-700 shadow-2xl">
+    {shortforplan.map((sper, index) => (
+      <div
+        className="my-4 mx-2 md:my-6 md:mx-4 flex flex-col md:flex-row md:justify-between gap-4"
+        key={index}
+      >
+        {/* Exercise Information */}
+        <div className="flex gap-2 md:gap-3 min-w-0">
+          <div className="shrink-0">
+            <Image
+              className="rounded-2xl w-16 h-16 md:w-20 md:h-20 object-cover"
+              width={100}
+              height={200}
+              src={sper.image}
+              alt="Image"
+            />
           </div>
-          <div className="flex items-center justify-between gap-3">
-            <Link href={`/${sper.id}`}>
-              {" "}
-              <button className="text-white border-2 border-gray-600 py-2 px-3 rounded-full hover:translate-y-0.5 hover:scale-100 shadow-2xl ">
-                View Detail{" "}
-              </button>
-            </Link>
-            <Link href="">
-              {" "}
-              <button onClick={()=>remaningfun(sper)} className="flex items-center gap-2 border-2 border-gray-600 py-2 px-3 rounded-full hover:translate-y-0.5 hover:scale-100 shadow-2xl bg-lime-500 text-black">
-                {" "}
-                <TiTick  />
-                Marks as Done{" "}
-              </button>
-            </Link>
-            <span>
-              <RxCross2  onClick={()=>remaningfun(sper)}/>
-            </span>
+
+          <div className="min-w-0 text-[.8rem] md:text-[1rem]">
+            <p className="font-semibold truncate">{sper.name}</p>
+
+            <p className="truncate">{sper.equipment}</p>
+
+            <div className="flex flex-wrap w-fit gap-2 md:gap-7 font-semibold">
+              <p className="flex items-center gap-1">
+                <IoMdTime className="text-[1rem]" />
+                {sper.duration}
+              </p>
+
+              <p className="flex items-center gap-1">
+                <FaFirefox className="text-[1rem]" />
+                {sper.caloriesBurned}
+              </p>
+
+              <p className="flex items-center gap-1">
+                <FaRegStar className="text-[1rem]" />
+                {sper.rating}
+              </p>
+            </div>
           </div>
         </div>
-      ))}
-    </div>
-  );
+
+        {/* Buttons */}
+        <div className="flex flex-wrap items-center gap-2 md:gap-3 md:shrink-0">
+          <Link href={`/${sper.id}`}>
+            <button className="text-white border-2 border-gray-600 py-1 px-2 md:py-2 md:px-3 text-[.8rem] md:text-[1rem] rounded-full shadow-2xl">
+              View Detail
+            </button>
+          </Link>
+
+          <button
+            onClick={() => remaningfun(sper)}
+            className="flex items-center gap-1 md:gap-2 border-2 border-gray-600 py-1 px-2 md:py-2 md:px-3 text-[.8rem] md:text-[1rem] rounded-full shadow-2xl bg-lime-500 text-black"
+          >
+            <TiTick />
+            Marks as Done
+          </button>
+
+          <button
+            onClick={() => remaningfun(sper)}
+            className="p-2"
+          >
+            <RxCross2 />
+          </button>
+        </div>
+      </div>
+    ))}
+  </div>
+);
 };
 
 export default PlanPage;

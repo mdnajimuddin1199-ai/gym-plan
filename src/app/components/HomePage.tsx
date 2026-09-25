@@ -26,7 +26,7 @@ const Banner = () => {
         </p>
         <div className="flex justify-center md:block">
                     <Link
-          href="/workouts"
+          href="/"
           className=" mt-6 inline-block rounded-md bg-lime-400 px-5 py-3 text-xs font-bold uppercase text-black transition hover:bg-lime-300"
         >
           Browse Workouts
