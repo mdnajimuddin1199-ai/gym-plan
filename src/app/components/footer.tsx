@@ -16,7 +16,9 @@ const FooterPage = () => {
           <p className="text-[1.2rem] font-semibold">FITLOG</p>
         </div>
         <div>
-          <p>© 2026 FitLog — Workout Library. Train hard, log honest.</p>
+          <p className="text-[.8rem] sm:text-[1.2rem] md:text-[1.3rem]">
+            © 2026 FitLog — Workout Library. Train hard, log honest.
+          </p>
         </div>
       </div>
     </footer>

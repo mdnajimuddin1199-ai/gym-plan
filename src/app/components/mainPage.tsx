@@ -14,7 +14,7 @@ const MainPage = async() => {
     const mandata =await getdata();
     console.log(mandata);
   return <div className="container mx-auto">
-    <div className="gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div className="gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-6 ">
        {
         mandata.map((singleman:Exercise)=> <SectionCard singleman={singleman} key={singleman.id}></SectionCard> )
     }

@@ -45,17 +45,9 @@ const NavbarPage = () => {
   return (
     <div className="border-b-2 shadow-2xl border-gray-600">
       <div className="navbar bg-base-100 shadow-sm container mx-auto">
-
-        {/* Left */}
         <div className="navbar-start">
-
-          {/* Mobile menu */}
           <div className="dropdown">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost lg:hidden"
-            >
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 aria-label="Menu"
                 xmlns="http://www.w3.org/2000/svg"
@@ -74,30 +66,24 @@ const NavbarPage = () => {
             </div>
 
             <ul
-              tabIndex={-1}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow flex justify-center gap-5 items-center text-center"
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
           </div>
 
-          {/* Logo */}
-          <div className="flex gap-3">
+          <div className="flex gap-3 items-center">
             <Image src={logo} alt="logo" />
             <p>FITLOG</p>
           </div>
         </div>
 
-        {/* Desktop menu */}
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 flex gap-5">
-            {links}
-          </ul>
+          <ul className="menu menu-horizontal px-1 flex gap-5">{links}</ul>
         </div>
 
-        {/* Right */}
         <div className="navbar-end gap-5">
-
           <Link href="/MyPlan" className="flex items-center gap-2">
             <span>Plan</span>
 
@@ -113,7 +99,6 @@ const NavbarPage = () => {
               {save.length}
             </span>
           </Link>
-
         </div>
       </div>
     </div>
