@@ -10,25 +10,24 @@ import { TiTick } from "react-icons/ti";
 import { toast } from "react-toastify";
 
 const SavedPage = () => {
-  const { save,setsave ,short} = useContext(AppContext);
-const shortbyfun = (everyman:Exercise[])=>{
-  const shorteveryman = [...everyman];
-  if(short==="Duration"){
-    shorteveryman.sort((a,b)=> b.duration - a.duration)
-  }else if (short==="Calories"){
-    shorteveryman.sort((a,b)=> b.caloriesBurned - a.caloriesBurned)
-  }else if(short==="Rating"){
-    shorteveryman.sort((a,b)=> b.rating - a.rating)
-  }
-  return shorteveryman
-}
-const evenforsaved = shortbyfun(save)
-const remaningfun = (redata:Exercise)=>{;
-  const remaningdata = save.filter((savedata)=> savedata.id !== redata.id);
-    setsave(remaningdata)
-    toast.info(`${redata.name} remove from save list card`)
-
-}
+  const { save, setsave, short } = useContext(AppContext);
+  const shortbyfun = (everyman: Exercise[]) => {
+    const shorteveryman = [...everyman];
+    if (short === "Duration") {
+      shorteveryman.sort((a, b) => b.duration - a.duration);
+    } else if (short === "Calories") {
+      shorteveryman.sort((a, b) => b.caloriesBurned - a.caloriesBurned);
+    } else if (short === "Rating") {
+      shorteveryman.sort((a, b) => b.rating - a.rating);
+    }
+    return shorteveryman;
+  };
+  const evenforsaved = shortbyfun(save);
+  const remaningfun = (redata: Exercise) => {
+    const remaningdata = save.filter((savedata) => savedata.id !== redata.id);
+    setsave(remaningdata);
+    toast.info(`${redata.name} remove from save list card`);
+  };
   if (save.length === 0) {
     return (
       <div className="w-full h-80 rounded-2xl border-2 border-gray-700 shadow-2xl  ">
@@ -50,33 +49,33 @@ const remaningfun = (redata:Exercise)=>{;
     <div className="w-full h-fit rounded-2xl border-2 border-gray-700 shadow-2xl">
       {evenforsaved.map((saveper) => (
         <div
-          className="my-6 mx-4 flex justify-between items-center"
+          className="my-6 mx-1 md:mx-4 flex justify-between items-center"
           key={saveper.name}
         >
-          <div className="flex gap-3">
+          <div className="flex gap-1 md:gap-3">
             <div className="">
               <Image
-                className="rounded-2xl"
-                width={100}
+                className="rounded-2xl w-20 "
+                width={200}
                 height={200}
                 src={saveper.image}
                 alt="Image"
               ></Image>
             </div>
-            <div>
+            <div className="text-[.8rem] md:text-[1rem">
               <p>{saveper.name}</p>
               <p>{saveper.equipment}</p>
-              <div className="flex w-fit  gap-7 font-semibold justify-start">
-                <p className="flex items-center gap-1">
+              <div className="flex w-fit  gap-2 md:gap-5  text-[.8rem] md:text-[1rem] font-semibold justify-start">
+                <p className="flex items-center md:gap-1">
                   {" "}
                   <IoMdTime className="text-[1rem]" /> {saveper.duration}
                 </p>
-                <p className="flex items-center gap-1">
+                <p className="flex items-center md:gap-1">
                   {" "}
                   <FaFirefox className="text-[1rem]" />
                   {saveper.caloriesBurned}
                 </p>
-                <p className="flex items-center gap-1">
+                <p className="flex items-center md:gap-1">
                   {" "}
                   <FaRegStar className="text-[1rem]" />
                   {saveper.rating}
@@ -84,23 +83,26 @@ const remaningfun = (redata:Exercise)=>{;
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center justify-between gap-1 md:gap-3">
             <Link href={`/${saveper.id}`}>
               {" "}
-              <button className="text-white border-2 border-gray-600 py-2 px-3 rounded-full hover:translate-y-0.5 hover:scale-100 shadow-2xl ">
+              <button className="text-white border-2 border-gray-600 py-1 md:py-2 md:px-3 text-[.8rem] md:text-[1rem] px-2 rounded-full hover:translate-y-0.5 hover:scale-100 shadow-2xl ">
                 View Detail{" "}
               </button>
             </Link>
             <Link href="">
               {" "}
-              <button onClick={()=>remaningfun(saveper)} className="flex items-center gap-2 border-2 border-gray-600 py-2 px-3 rounded-full hover:translate-y-0.5 hover:scale-100 shadow-2xl bg-lime-500 text-black">
+              <button
+                onClick={() => remaningfun(saveper)}
+                className="flex items-center gap-2 border-2 border-gray-600 py-1 md:py-2 md:px-3 text-[.8rem] md:text-[1rem] px-2 rounded-full hover:translate-y-0.5 hover:scale-100 shadow-2xl bg-lime-500 text-black"
+              >
                 {" "}
-                <TiTick  />
+                <TiTick />
                 Marks as Done{" "}
               </button>
             </Link>
             <span>
-              <RxCross2  onClick={()=>remaningfun(saveper)}/>
+              <RxCross2 onClick={() => remaningfun(saveper)} />
             </span>
           </div>
         </div>
