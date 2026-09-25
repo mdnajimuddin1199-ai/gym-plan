@@ -43,7 +43,8 @@ const NavbarPage = () => {
   );
 
   return (
-    <div className="border-b-2 shadow-2xl border-gray-600">
+    <nav className="sticky top-0 z-50 bg-base-100">
+       <div className="border-b border-gray-700/70 bg-base-100/90 backdrop-blur-md shadow-lg">
       <div className="navbar bg-base-100 shadow-sm container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -102,6 +103,8 @@ const NavbarPage = () => {
         </div>
       </div>
     </div>
+    </nav>
+   
   );
 };
 
